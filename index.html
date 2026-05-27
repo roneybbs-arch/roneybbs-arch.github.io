@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfólio profissional de Roneyberg Braga, Coordenador de TI com mais de 10 anos de experiência em varejo, ERP, infraestrutura e transformação digital." />
+  <title>Roneyberg Braga | Coordenador de TI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #1a6b5a;
+      --green-light: #e8f4f0;
+      --green-tag-bg: #d4ede6;
+      --amber: #b45309;
+      --amber-bg: #fef3c7;
+      --text: #0f1a17;
+      --text-muted: #4b5563;
+      --text-light: #9ca3af;
+      --bg: #f4f7f6;
+      --bg-white: #ffffff;
+      --border: #e5e7eb;
+      --footer-bg: #111827;
+      --footer-text: #ffffff;
+      --radius: 12px;
+      --radius-lg: 16px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center;
+      padding: 0 clamp(20px, 5vw, 80px);
+      height: 60px;
+      gap: 40px;
+    }
+    .nav-home {
+      display: flex; align-items: center;
+      color: var(--text); text-decoration: none;
+      flex-shrink: 0;
+    }
+    .nav-home svg { width: 22px; height: 22px; }
+    .nav-links {
+      display: flex; gap: 4px;
+      list-style: none; margin-left: auto;
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 100px;
+      transition: background .2s, color .2s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: var(--green);
+      color: #fff;
+    }
+
+    /* ── HERO ── */
+    #home {
+      background: linear-gradient(135deg, #e8f4f0 0%, #f0f7f4 40%, #f4f7f6 100%);
+      padding: 72px clamp(20px, 7vw, 120px) 80px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 64px;
+      align-items: start;
+      min-height: calc(100vh - 60px);
+    }
+    .hero-left { max-width: 600px; }
+    .hero-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: clamp(48px, 7vw, 80px);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -3px;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .hero-tagline {
+      font-size: clamp(18px, 2.5vw, 24px);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: 20px;
+    }
+    .hero-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 36px;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 48px; }
+    .btn-green {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--green);
+      color: #fff;
+      font-size: 14px; font-weight: 600;
+      padding: 12px 22px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: opacity .2s;
+    }
+    .btn-green:hover { opacity: .88; }
+    .btn-dark {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--text);
+      color: #fff;
+      font-size: 14px; font-weight: 600;
+      padding: 12px 22px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: opacity .2s;
+    }
+    .btn-dark:hover { opacity: .85; }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent;
+      border: 1.5px solid var(--text);
+      color: var(--text);
+      font-size: 14px; font-weight: 600;
+      padding: 12px 22px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: background .2s, color .2s;
+    }
+    .btn-outline:hover { background: var(--text); color: #fff; }
+
+    .hero-feature-cards {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    }
+    .feature-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .feature-card-title {
+      font-size: 16px; font-weight: 800;
+      color: var(--green);
+      margin-bottom: 6px;
+    }
+    .feature-card-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+    /* HERO RIGHT */
+    .hero-right {
+      display: flex; flex-direction: column; gap: 12px;
+      padding-top: 8px;
+    }
+    .hero-photo {
+      width: clamp(200px, 22vw, 280px);
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: #d1e8e2;
+      display: block;
+    }
+    .hero-photo-placeholder {
+      width: clamp(200px, 22vw, 280px);
+      aspect-ratio: 3/4;
+      background: #d1e8e2;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 56px; font-weight: 900; color: var(--green);
+      letter-spacing: -3px;
+    }
+    .hero-info-cards { display: flex; flex-direction: column; gap: 8px; }
+    .info-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--green);
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; font-weight: 500; color: var(--text);
+      white-space: nowrap;
+    }
+    .info-card svg { width: 16px; height: 16px; color: var(--green); flex-shrink: 0; }
+
+    /* ── SECTION BASE ── */
+    section { padding: 80px clamp(20px, 7vw, 120px); }
+    .section-eyebrow {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--green); margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 900;
+      letter-spacing: -2px;
+      color: var(--text);
+      margin-bottom: 48px;
+      line-height: 1.1;
+    }
+
+    /* ── PERFIL ── */
+    #perfil { background: var(--bg); }
+    .perfil-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .perfil-text { font-size: 15px; color: var(--text-muted); line-height: 1.8; }
+    .perfil-text p + p { margin-top: 16px; }
+
+    /* ── EXPERIÊNCIA ── */
+    #experiencia { background: var(--bg); }
+    .exp-list { display: flex; flex-direction: column; gap: 20px; }
+    .exp-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px 36px;
+      display: grid;
+      grid-template-columns: 200px auto 1fr;
+      gap: 0 32px;
+      align-items: start;
+    }
+    .exp-period-badge {
+      display: inline-block;
+      background: var(--amber-bg);
+      color: var(--amber);
+      font-size: 11px; font-weight: 700;
+      padding: 4px 10px; border-radius: 100px;
+      letter-spacing: .5px;
+      margin-bottom: 14px;
+      white-space: nowrap;
+    }
+    .exp-logo {
+      width: 80px; height: 40px;
+      object-fit: contain;
+      background: #f3f4f6;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 800; color: var(--text);
+      padding: 6px 10px;
+      text-align: center;
+      line-height: 1.2;
+    }
+    .exp-dot {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--green);
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 2px var(--green);
+      margin-top: 4px; flex-shrink: 0;
+    }
+    .exp-role {
+      font-size: 18px; font-weight: 700;
+      color: var(--text); margin-bottom: 14px;
+    }
+    .exp-bullets { list-style: disc; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; }
+    .exp-bullets li { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+
+    /* ── PROJETOS ── */
+    #projetos { background: var(--bg-white); }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+    .project-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      transition: box-shadow .2s;
+    }
+    .project-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.08); }
+    .project-icon {
+      width: 44px; height: 44px;
+      background: var(--green-light);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; margin-bottom: 16px;
+    }
+    .project-name { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .project-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; margin-bottom: 18px; }
+    .project-link {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 13px; font-weight: 600; color: var(--green);
+      text-decoration: none;
+    }
+    .project-link:hover { text-decoration: underline; }
+
+    /* ── COMPETÊNCIAS ── */
+    #competencias { background: var(--bg); }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .skill-group {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+    }
+    .skill-group-icon {
+      width: 44px; height: 44px;
+      background: var(--green-light);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+      color: var(--green);
+    }
+    .skill-group-icon svg { width: 22px; height: 22px; }
+    .skill-group-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 14px; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-tag {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 13px; font-weight: 400;
+      padding: 5px 12px; border-radius: 100px;
+    }
+
+    /* ── FORMAÇÃO ── */
+    #formacao { background: var(--bg); }
+    .edu-list { display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
+    .edu-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px 28px;
+      display: flex; align-items: center; gap: 20px;
+    }
+    .edu-logo {
+      width: 64px; height: 64px; flex-shrink: 0;
+      background: #f3f4f6;
+      border-radius: 10px; border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700; color: var(--text); text-align: center; padding: 6px;
+    }
+    .edu-year {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.5px; color: var(--amber);
+      margin-bottom: 4px;
+    }
+    .edu-degree { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .edu-school { font-size: 14px; color: var(--text-muted); }
+
+    .cert-section-title {
+      font-size: 18px; font-weight: 700; color: var(--text);
+      margin-bottom: 16px; margin-top: 8px;
+    }
+    .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .cert-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px 24px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .cert-icon {
+      width: 52px; height: 52px; flex-shrink: 0;
+      background: var(--green-light);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+    }
+    .cert-year { font-size: 12px; font-weight: 700; color: var(--amber); margin-bottom: 4px; }
+    .cert-name { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+    .cert-issuer { font-size: 13px; color: var(--text-muted); }
+
+    /* ── CONTATO (FOOTER) ── */
+    #contato {
+      background: var(--footer-bg);
+      color: var(--footer-text);
+      padding: 80px clamp(20px, 7vw, 120px);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 40px;
+    }
+    .contato-eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: #6ee7b7; margin-bottom: 16px;
+    }
+    .contato-title {
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 900; letter-spacing: -2px;
+      color: #fff; line-height: 1.05;
+    }
+    .contact-icons { display: flex; gap: 12px; }
+    .contact-icon-btn {
+      width: 56px; height: 56px;
+      background: rgba(255,255,255,.1);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; text-decoration: none; font-size: 22px;
+      transition: background .2s;
+    }
+    .contact-icon-btn:hover { background: var(--green); }
+    .contact-icon-btn svg { width: 22px; height: 22px; }
+
+    /* ── FINAL FOOTER ── */
+    .footer-bottom {
+      background: var(--footer-bg);
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding: 20px clamp(20px, 7vw, 120px);
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 13px; color: rgba(255,255,255,.5);
+    }
+    .footer-bottom a {
+      color: #6ee7b7; text-decoration: none; font-weight: 600;
+    }
+    .footer-bottom a:hover { text-decoration: underline; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      #home { grid-template-columns: 1fr; }
+      .hero-right { flex-direction: row; flex-wrap: wrap; }
+      .hero-feature-cards { grid-template-columns: 1fr; }
+      .perfil-grid { grid-template-columns: 1fr; gap: 32px; }
+      .exp-card { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .cert-grid { grid-template-columns: 1fr; }
+      #contato { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .skills-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#home" class="nav-home" aria-label="Início">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><polyline points="9 21 9 12 15 12 15 21"/></svg>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#perfil">Perfil</a></li>
+    <li><a href="#experiencia">Experiência</a></li>
+    <li><a href="#projetos">Projetos</a></li>
+    <li><a href="#competencias">Competências</a></li>
+    <li><a href="#formacao">Formação</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-left">
+    <div class="hero-eyebrow">TI &amp; TRANSFORMAÇÃO DIGITAL | VAREJO | DADOS</div>
+    <h1>Roneyberg<br>Braga</h1>
+    <p class="hero-tagline">Coordenador de TI focado em infraestrutura,<br>ERP e soluções digitais para o varejo.</p>
+    <p class="hero-desc">
+      Profissional com mais de 10 anos de experiência no setor varejista, atuando desde o operacional até a coordenação estratégica de tecnologia. Transformo operações complexas em processos eficientes por meio de automação, análise de dados e ferramentas práticas que geram resultado real.
+    </p>
+    <div class="hero-actions">
+      <a href="mailto:roneybbs@gmail.com" class="btn-outline">✉ E-mail</a>
+      <a href="https://www.linkedin.com/in/roneyberg-braga-075527243/" target="_blank" class="btn-dark">LinkedIn</a>
+    </div>
+    <div class="hero-feature-cards">
+      <div class="feature-card">
+        <div class="feature-card-title">Infraestrutura</div>
+        <div class="feature-card-desc">Gestão de redes, PDVs e servidores em 14 lojas</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-title">Dados</div>
+        <div class="feature-card-desc">Relatórios, mini-BI e análise de 2M+ cupons</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-title">Projetos</div>
+        <div class="feature-card-desc">Sistemas internos e produtos digitais no mercado</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <!-- Substitua o src pela sua foto -->
+    <img
+      src="WhatsApp_Image_2026-03-27_at_11_35_52.jpeg"
+      alt="Foto de Roneyberg Braga"
+      class="hero-photo"
+      onerror="this.outerHTML='<div class=\'hero-photo-placeholder\'>RB</div>'"
+    />
+    <div class="hero-info-cards">
+      <div class="info-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        São Paulo, SP
+      </div>
+      <div class="info-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        SQL, Python, Excel, HTML/JS
+      </div>
+      <div class="info-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        ERP / PDV, NF-e, Power BI
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERFIL -->
+<section id="perfil">
+  <div class="section-eyebrow">PERFIL</div>
+  <h2 class="section-title">TI aplicada ao varejo,<br>do operacional ao estratégico.</h2>
+  <div class="perfil-grid">
+    <div>
+      <p class="perfil-text">
+        Como Coordenador de TI e especialista em operações de varejo, atuo estrategicamente na interseção entre infraestrutura de tecnologia, gestão de sistemas ERP e geração de valor para o negócio. Minha trajetória é marcada pelo crescimento dentro da mesma empresa — comecei como suporte técnico e hoje lidero o departamento de TI de uma rede com 14 lojas.
+      </p>
+    </div>
+    <div>
+      <p class="perfil-text">
+        Tenho sólida experiência no ciclo completo das operações de TI no varejo: desde a montagem de infraestrutura em novas lojas até análises de dados com milhões de registros para suporte à tomada de decisão. Sob a ótica de gestão de projetos, foco em soluções práticas, conformidade fiscal (NF-e / SEFAZ) e redução de custos operacionais, garantindo que a tecnologia tenha impacto real no resultado da empresa.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIÊNCIA -->
+<section id="experiencia">
+  <div class="section-eyebrow">EXPERIÊNCIA</div>
+  <h2 class="section-title">Histórico profissional</h2>
+  <div class="exp-list">
+
+    <div class="exp-card">
+      <div>
+        <div class="exp-period-badge">2022 – ATUAL</div>
+        <div class="exp-logo">THALIA<br>Perfumaria</div>
+      </div>
+      <div class="exp-dot"></div>
+      <div>
+        <div class="exp-role">Coordenador de Tecnologia da Informação</div>
+        <ul class="exp-bullets">
+          <li>Gestão estratégica do departamento de TI para rede de 14 lojas em São Paulo.</li>
+          <li>Liderança de projetos de avaliação e seleção de sistemas de PDV, incluindo análise de TCO e apresentação executiva para diretoria.</li>
+          <li>Desenvolvimento de relatórios gerenciais de inventário (HTML, Excel, PDF) para análise de perdas reais vs. erros de processo interno.</li>
+          <li>Criação de ferramentas internas: calculadora de precificação pós-ICMS-ST, workbook de movimentações e mini-BI para análise de dados.</li>
+          <li>Análise de dados Nielsen RDC Online para gaps de portfólio; análise de ~2M cupons fiscais para avaliação de CRM.</li>
+          <li>Mapeamento de processos, levantamento de requisitos, modelagem de dados e conformidade fiscal (NF-e / SEFAZ).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div>
+        <div class="exp-period-badge">2019 – 2022</div>
+        <div class="exp-logo">THALIA<br>Perfumaria</div>
+      </div>
+      <div class="exp-dot"></div>
+      <div>
+        <div class="exp-role">Analista de Sistemas ERP</div>
+        <ul class="exp-bullets">
+          <li>Suporte técnico ao ERP (frente de loja e retaguarda) para rede de 12 lojas.</li>
+          <li>Montagem de redes e infraestrutura de hardware em aberturas de novas lojas.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div>
+        <div class="exp-period-badge">2017 – 2019</div>
+        <div class="exp-logo">THALIA<br>Perfumaria</div>
+      </div>
+      <div class="exp-dot"></div>
+      <div>
+        <div class="exp-role">Auxiliar de Informática</div>
+        <ul class="exp-bullets">
+          <li>Suporte técnico a PDVs, servidores, switches, redes e equipamentos de loja.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div>
+        <div class="exp-period-badge">2012 – 2017</div>
+        <div class="exp-logo">Jardim<br>Ângela</div>
+      </div>
+      <div class="exp-dot"></div>
+      <div>
+        <div class="exp-role">Estoquista</div>
+        <ul class="exp-bullets">
+          <li>Controle de entrada/saída de mercadorias, estoque físico e sistêmico, organização e inventário.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJETOS -->
+<section id="projetos">
+  <div class="section-eyebrow">REALIZAÇÕES</div>
+  <h2 class="section-title">Projetos &amp; Produtos</h2>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-icon">🔍</div>
+      <div class="project-name">AuditPro</div>
+      <div class="project-desc">Plataforma web para gestão de auditorias em redes de varejo com dashboard de KPIs, checklists, ocorrências e insights executivos. Desenvolvido com Lovable.</div>
+      <a href="https://audittrack-plus.lovable.app/dashboard" target="_blank" class="project-link">Ver projeto →</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon">📦</div>
+      <div class="project-name">Gestão de Trocas</div>
+      <div class="project-desc">Sistema de romaneios da rede Thalia com 8.700+ registros e R$ 1M+ processado. Gestão de status, filtros por loja/marca/motivo e exportação CSV.</div>
+      <a href="https://roneybbs-arch.github.io/Thalia-Trocas/" target="_blank" class="project-link">Ver projeto →</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon">🏷️</div>
+      <div class="project-name">Gestão de Cadastro de Produtos</div>
+      <div class="project-desc">Plataforma integrada ao Bluesoft Cosmos para padronização de cadastros com diagnóstico automático de NCM/CEST, importação em lote e exportação para o ERP.</div>
+      <a href="https://roneybbs-arch.github.io/Thalia-Cadastrov2/" target="_blank" class="project-link">Ver projeto →</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon">🤖</div>
+      <div class="project-name">PromptBook</div>
+      <div class="project-desc">E-book com 130+ prompts de IA em 12 capítulos, comercializado via Kiwify com landing page otimizada e rastreamento via Meta Pixel.</div>
+      <a href="#contato" class="project-link">Saiba mais →</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon">💰</div>
+      <div class="project-name">Meu Bolso Finança</div>
+      <div class="project-desc">Aplicativo mobile de finanças pessoais para o público brasileiro, com foco em controle de gastos e planejamento financeiro. Desenvolvido no Lovable.</div>
+      <a href="https://www.meubolsoevolint.com/" target="_blank" class="project-link">Ver projeto →</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon">🧮</div>
+      <div class="project-name">Calculadora ICMS-ST</div>
+      <div class="project-desc">Ferramenta interativa de precificação pós-Portaria SRE nº 94/2025. Cálculo bidirecional com suporte a múltiplos regimes tributários e alíquotas por departamento.</div>
+      <a href="https://evofiscal.lovable.app/" target="_blank" class="project-link">Ver projeto →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMPETÊNCIAS -->
+<section id="competencias">
+  <div class="section-eyebrow">COMPETÊNCIAS</div>
+  <h2 class="section-title">Stack técnico e atuação</h2>
+  <div class="skills-grid">
+
+    <div class="skill-group">
+      <div class="skill-group-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      </div>
+      <div class="skill-group-title">Coordenação &amp; Gestão</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Coordenação de TI</span>
+        <span class="skill-tag">Gestão de Projetos</span>
+        <span class="skill-tag">Liderança</span>
+        <span class="skill-tag">Análise de TCO</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
+      <div class="skill-group-title">Sistemas &amp; Infraestrutura</div>
+      <div class="skill-tags">
+        <span class="skill-tag">ERP / PDV</span>
+        <span class="skill-tag">Redes</span>
+        <span class="skill-tag">Servidores</span>
+        <span class="skill-tag">Suporte Técnico</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      </div>
+      <div class="skill-group-title">Dados &amp; Analytics</div>
+      <div class="skill-tags">
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">Excel Avançado</span>
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Mini-BI</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+      </div>
+      <div class="skill-group-title">Desenvolvimento Web</div>
+      <div class="skill-tags">
+        <span class="skill-tag">HTML / CSS / JS</span>
+        <span class="skill-tag">GitHub Pages</span>
+        <span class="skill-tag">Lovable</span>
+        <span class="skill-tag">N8N</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+      </div>
+      <div class="skill-group-title">Fiscal &amp; Compliance</div>
+      <div class="skill-tags">
+        <span class="skill-tag">NF-e / SEFAZ</span>
+        <span class="skill-tag">ICMS-ST</span>
+        <span class="skill-tag">Manifestação do Destinatário</span>
+        <span class="skill-tag">ICP-Brasil</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      </div>
+      <div class="skill-group-title">Idiomas</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Português — Nativo</span>
+        <span class="skill-tag">Inglês — Intermediário</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FORMAÇÃO -->
+<section id="formacao">
+  <div class="section-eyebrow">FORMAÇÃO</div>
+  <h2 class="section-title">Educação e certificações</h2>
+
+  <div class="edu-list">
+    <div class="edu-card">
+      <div class="edu-logo">UNINOVE</div>
+      <div>
+        <div class="edu-year">CONCLUÍDO EM 2017</div>
+        <div class="edu-degree">Análise e Desenvolvimento de Sistemas</div>
+        <div class="edu-school">Universidade Nove de Julho — Uninove</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cert-section-title">Certificações</div>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <div class="cert-icon">🤖</div>
+      <div>
+        <div class="cert-year">2026</div>
+        <div class="cert-name">Lovable Impressionador</div>
+        <div class="cert-issuer">Hashtag Treinamentos</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">⚙️</div>
+      <div>
+        <div class="cert-year">EM ANDAMENTO</div>
+        <div class="cert-name">N8N – Automação de Fluxos com IA</div>
+        <div class="cert-issuer">Hashtag Treinamentos</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">✨</div>
+      <div>
+        <div class="cert-year">2025</div>
+        <div class="cert-name">Inteligência Artificial Impressionador</div>
+        <div class="cert-issuer">Hashtag Treinamentos</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">📊</div>
+      <div>
+        <div class="cert-year">2024</div>
+        <div class="cert-name">Excel Avançado</div>
+        <div class="cert-issuer">Udemy</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🗄️</div>
+      <div>
+        <div class="cert-year">2023</div>
+        <div class="cert-name">Banco de Dados e SQL</div>
+        <div class="cert-issuer">Udemy</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🛒</div>
+      <div>
+        <div class="cert-year">2020</div>
+        <div class="cert-name">E-Commerce Professional</div>
+        <div class="cert-issuer">Impacta</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div>
+    <div class="contato-eyebrow">CONTATO</div>
+    <div class="contato-title">Vamos conversar sobre<br>tecnologia, varejo<br>e soluções digitais.</div>
+  </div>
+  <div class="contact-icons">
+    <a href="mailto:roneybbs@gmail.com" class="contact-icon-btn" title="E-mail">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    </a>
+    <a href="tel:+5511964308930" class="contact-icon-btn" title="Telefone">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.75a16 16 0 006.16 6.16l1.13-1.16a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/in/roneyberg-braga-075527243/" target="_blank" class="contact-icon-btn" title="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+    </a>
+    <a href="https://github.com/roneybbs-arch" target="_blank" class="contact-icon-btn" title="GitHub">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+    </a>
+  </div>
+</section>
+
+<div class="footer-bottom">
+  <span>© 2026 Roneyberg Braga</span>
+  <a href="#home">Voltar ao topo ↑</a>
+</div>
+
+<script>
+  // Active nav highlight on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.4 });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
